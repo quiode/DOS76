@@ -50,6 +50,18 @@ install_packages(){
     sudo snap install $packages
 }
 
+install_configs(){
+    # Gnome Terminal Dracula Theme
+    git clone https://github.com/dracula/gnome-terminal
+    cd gnome-terminal
+    ./install.sh
+    cd ../
+    rm -rf gnome-terminal
+
+    # Neovim
+    echo 'alias v=nvim' >> /home/$USER/.bashrc # alias for nvim
+}
+
 
 if [[ $EUID -eq 0 ]]; then
     echo -e "\e[31mDo not run this as the root user\e[0m"
@@ -58,7 +70,7 @@ fi
 
 while true
 do
-    read -r -p 'If you continue, all dotfiles will be overritten. Do you want to continue [Y/n]?' choice
+    read -r -p 'If you continue, all packages will be downloaded. Do you want to continue [Y/n]?' choice
     case "$choice" in
         n|N) leave;;
         *) break;;
@@ -66,3 +78,14 @@ do
 done
 
 install_packages
+
+while true
+do
+    read -r -p 'If you continue, all config files will be overritten. Do you want to continue [Y/n]?' choice
+    case "$choice" in
+        n|N) leave;;
+        *) break;;
+    esac
+done
+
+install_configs

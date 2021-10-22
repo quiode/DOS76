@@ -1,4 +1,8 @@
 neofetch
 vim
+neovim
 p7zip-full
 p7zip-rar
+snapd
+neovim
+dconf-cli
