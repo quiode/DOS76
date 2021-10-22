@@ -99,6 +99,7 @@ install_configs(){
     # Copy the personal account config files
     cp -r $SCRIPT_DIR"/../configs/onedrive/onedrive/config" /home/$USER/.config/onedrive
     
+    mkdir $choice
     # Replace the default save-location with the one specified
     mkdir $choice'/Private/'
     cd /home/$USER/.config/onedrive
