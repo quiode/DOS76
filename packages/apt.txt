@@ -1,2 +1,4 @@
 neofetch
 vim
+p7zip-full
+p7zip-rar
