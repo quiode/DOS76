@@ -1,2 +1,67 @@
 #!/bin/bash
 # This script installs all packages and configfiles, removes old config filesset
+
+# Constants
+SCRIPT_DIR=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+# Variables
+
+# Functions
+leave() {
+    echo "Aborting..."
+    exit 1
+}
+
+install_packages(){
+    echo -e "\e[34mInstalling Packages\e[0m"
+    #APT
+    echo -e "\e[34mAPT\e[0m"
+    sudo apt-get update
+    sudo apt-get upgrade -y
+    filepath=$SCRIPT_DIR"/../packages/apt.txt"
+    packages=''
+    while read line
+    do
+        packages=$packages' '$line
+    done < $filepath
+    echo -e "\e[34mInstalling: $packages\e[0m"
+    sudo apt-get install -y $packages
+    # FLATPAK
+    echo -e "\e[34mFLATPAK\e[0m"
+    flatpak update
+    filepath=$SCRIPT_DIR"/../packages/flatpak.txt"
+    packages=''
+    while read line
+    do
+        packages=$packages' '$line
+    done < $filepath
+    echo -e "\e[34mInstalling: $packages\e[0m"
+    flatpak install -y $packages
+    # SNAP
+    echo -e "\e[34mSNAP\e[0m"
+    sudo snap refresh
+    filepath=$SCRIPT_DIR"/../packages/snap.txt"
+    packages=''
+    while read line
+    do
+        packages=$packages' '$line
+    done < $filepath
+    echo -e "\e[34mInstalling: $packages\e[0m"
+    sudo snap install $packages
+}
+
+
+if [[ $EUID -eq 0 ]]; then
+    echo -e "\e[31mDo not run this as the root user\e[0m"
+    leave
+fi
+
+while true
+do
+    read -r -p 'If you continue, all dotfiles will be overritten. Do you want to continue [Y/n]?' choice
+    case "$choice" in
+        n|N) leave;;
+        *) break;;
+    esac
+done
+
+install_packages
