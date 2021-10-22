@@ -6,3 +6,6 @@ p7zip-rar
 snapd
 neovim
 dconf-cli
+texlive-full
+code
+onedrive
