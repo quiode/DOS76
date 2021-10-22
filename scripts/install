@@ -105,7 +105,7 @@ install_configs(){
     cd /home/$USER/.config/onedrive
     
     # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
-    sed -i '7s/.*/'$choice'/Private/''/' config
+    sed -i '7s#.*#'$choice'/Private/''#' config
     
     # Make onedrive school setup
     cp -r $SCRIPT_DIR"/../configs/onedrive/onedrive-school" /home/$USER/.config/
@@ -115,7 +115,7 @@ install_configs(){
     cd /home/$USER/.config/onedrive-school
     
     # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
-    sed -i '7s/.*/'$choice'/School/''/' config
+    sed -i '7s#.*#'$choice'/School/''#' config
     
     echo -e "\e[34mPlease authenticate with your school account.\e[0m"
     sleep 2
@@ -132,7 +132,7 @@ install_configs(){
     cd /usr/lib/systemd/user/
     cp onedrive.service onedrive-school.service
     
-    sed -i '8s/.*/ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'$USER'/.config/onedrive-school"/' onedrive-school.service
+    sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'$USER'/.config/onedrive-school#' onedrive-school.service
     
     systemctl --user enable onedrive-school
     systemctl --user start onedrive-school
