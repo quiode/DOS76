@@ -99,6 +99,7 @@ install_configs(){
     # Copy the personal account config files
     cp -r $SCRIPT_DIR"/../configs/onedrive/onedrive/config" /home/$USER/.config/onedrive
     
+    # TODO add a check if there already is a folder, if so, notify that it will be overwritten
     mkdir $choice
     # Replace the default save-location with the one specified
     mkdir $choice'/Private/'
@@ -130,7 +131,7 @@ install_configs(){
     
     # Setup notification daemon for OneDrive School
     cd /usr/lib/systemd/user/
-    cp onedrive.service onedrive-school.service
+    sudo cp onedrive.service onedrive-school.service
     
     sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'$USER'/.config/onedrive-school#' onedrive-school.service
     
