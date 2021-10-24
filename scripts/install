@@ -65,6 +65,8 @@ install_configs(){
     cd ../
     rm -rf gnome-terminal
     
+    eval `dircolors /home/$USER/.dir_colors/dircolors`
+    
     # Neovim
     echo -e "\e[34mSetting Neovim...\e[0m"
     echo 'alias v=nvim' >> /home/$USER/.bashrc # alias for nvim
