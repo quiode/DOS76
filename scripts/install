@@ -108,7 +108,7 @@ install_configs(){
     cd /home/$USER/.config/onedrive
     
     # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
-    sed -i '7s#.*#'$choice'/Private/''#' config
+    sed -i '7s#.*#sync_dir = "'$choice'/Private/"#' config
     
     # Make onedrive school setup
     cp -r $SCRIPT_DIR"/../configs/onedrive/onedrive-school" /home/$USER/.config/
@@ -118,7 +118,7 @@ install_configs(){
     cd /home/$USER/.config/onedrive-school
     
     # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
-    sed -i '7s#.*#'$choice'/School/''#' config
+    sed -i '7s#.*#sync_dir = "'$choice'/School/"#' config
     
     echo -e "\e[34mPlease authenticate with your school account.\e[0m"
     sleep 2
