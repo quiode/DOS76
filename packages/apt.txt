@@ -9,4 +9,4 @@ dconf-cli
 texlive-full
 code
 onedrive
-gnuplots
+gnuplot
