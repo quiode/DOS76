@@ -96,7 +96,6 @@ install_configs(){
     done
     
     echo -e "\e[34mPlease authenticate with your personal account.\e[0m"
-    sleep 2
     onedrive
     # Copy the personal account config files
     cp -r "$SCRIPT_DIR""/../configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
@@ -121,7 +120,7 @@ install_configs(){
     sed -i '7s#.*#sync_dir = "'"$choice"'/School/"#' config
     
     echo -e "\e[34mPlease authenticate with your school account.\e[0m"
-    sleep 2
+    
     onedrive --confdir="~/.config/onedrive-school"
     
     # Setup notification daemon for OneDrive Private
