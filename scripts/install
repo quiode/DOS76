@@ -249,6 +249,8 @@ install_configs(){
     fi
     mv qbittorrent.qbtheme /home/"$USER"/.config/qBittorrent/
     # TODO: set theme in config/set config generally
+    
+    # TODO: gonome extensions
 }
 
 post_setup(){
