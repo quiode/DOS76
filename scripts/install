@@ -166,7 +166,6 @@ install_configs(){
     cp -r "$SCRIPT_DIR""/../configs/bash/." /home/"$USER"/
     
     # NVM
-    # TODO: implement
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
     
     # VS-Code
@@ -182,8 +181,14 @@ install_configs(){
     cp -r "$SCRIPT_DIR""/../configs/code/settings.json" /home/"$USER"/.config/Code/User/settings.json
     cp -r "$SCRIPT_DIR""/../configs/code/keybindings.json" /home/"$USER"/.config/Code/User/keybindings.json
     cp -r "$SCRIPT_DIR""/../configs/code/.prettierrc.json" /home/"$USER"/.config/
-    # TODO: for extensions: make loop through the code.txt file, install every extension with a new command (code --install-extension <extension-id>)
     
+    echo -e "\e[34mInstalling VS-Code Extensions\e[0m"
+    sudo snap refresh
+    filepath=$SCRIPT_DIR"/../packages/code.txt"
+    while read -r line
+    do
+        code --install-extension "$line"
+    done < "$filepath"
 }
 
 
