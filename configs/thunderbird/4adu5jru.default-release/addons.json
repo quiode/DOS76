@@ -1,0 +1,84 @@
+{
+  "schema": 6,
+  "addons": [
+    {
+      "id": "owl@beonex.com",
+      "icons": {
+        "32": "https://addons.thunderbird.net/user-media/addon_icons/986/986325-32.png?modified=61143e90",
+        "64": "https://addons.thunderbird.net/user-media/addon_icons/986/986325-64.png?modified=61143e90"
+      },
+      "name": "Owl for Exchange",
+      "version": "0.7.9.2",
+      "sourceURI": "https://addons.thunderbird.net/thunderbird/downloads/file/1019679/eule_fur_exchange-0.7.9.2-tb.xpi?src=",
+      "homepageURL": "https://www.beonex.com/owl/",
+      "supportURL": null,
+      "description": "Allows you to use your Exchange and Office365 email account with Thunderbird using Outlook Web Access (OWA).",
+      "fullDescription": "Allows you to use your Exchange and Office365 email account using Outlook Web Access (OWA) with Thunderbird. After setup, your account should appear in Thunderbird just like the other accounts. You can read and write emails with your Exchange account.\n\nThis is a paid addon. See the website https://www.beonex.com/owl/ for prices. The first month is free, so that you can test it and see whether you like it.\n\nThe developers of this addon have contributed many parts to Thunderbird as Open Source, and they are active around Thunderbird and its predecessor since many years, since almost 20 years. This is how we're earning our living.\n\nhttps://www.beonex.com/owl/",
+      "weeklyDownloads": 0,
+      "type": "extension",
+      "creator": {
+        "name": "Beonex",
+        "url": "https://addons.thunderbird.net/en-US/thunderbird/user/owl-beonex/"
+      },
+      "developers": [],
+      "screenshots": [],
+      "contributionURL": "",
+      "averageRating": 4.5876,
+      "reviewCount": 97,
+      "reviewURL": "https://addons.thunderbird.net/en-US/thunderbird/addon/owl-for-exchange/reviews/",
+      "updateDate": 1632774265000
+    },
+    {
+      "id": "maxfrei@web.de",
+      "icons": {
+        "32": "https://addons.thunderbird.net/static/img/addon-icons/default-32.png",
+        "64": "https://addons.thunderbird.net/static/img/addon-icons/default-64.png"
+      },
+      "name": "Dracula Theme for Thunderbird",
+      "version": "1.0",
+      "sourceURI": "https://addons.thunderbird.net/thunderbird/downloads/file/1018019/dracula_theme-1.0-tb.xpi?src=",
+      "homepageURL": null,
+      "supportURL": null,
+      "description": "Dracula theme for Thunderbird.",
+      "fullDescription": null,
+      "weeklyDownloads": 0,
+      "type": "theme",
+      "creator": {
+        "name": "Nos90",
+        "url": "https://addons.thunderbird.net/en-US/thunderbird/user/Nos90/"
+      },
+      "developers": [],
+      "screenshots": [
+        {
+          "url": "https://addons.thunderbird.net/user-media/version-previews/full/2/2087.png?modified=1606415778",
+          "width": 680,
+          "height": 92,
+          "thumbnailURL": "https://addons.thunderbird.net/user-media/version-previews/thumbs/2/2087.png?modified=1606415778",
+          "thumbnailWidth": 473,
+          "thumbnailHeight": 64
+        },
+        {
+          "url": "https://addons.thunderbird.net/user-media/version-previews/full/2/2088.png?modified=1606415779",
+          "width": 760,
+          "height": 92,
+          "thumbnailURL": "https://addons.thunderbird.net/user-media/version-previews/thumbs/2/2088.png?modified=1606415779",
+          "thumbnailWidth": 529,
+          "thumbnailHeight": 64
+        },
+        {
+          "url": "https://addons.thunderbird.net/user-media/version-previews/full/2/2089.png?modified=1606415779",
+          "width": 720,
+          "height": 92,
+          "thumbnailURL": "https://addons.thunderbird.net/user-media/version-previews/thumbs/2/2089.png?modified=1606415779",
+          "thumbnailWidth": 501,
+          "thumbnailHeight": 64
+        }
+      ],
+      "contributionURL": "",
+      "averageRating": 5,
+      "reviewCount": 2,
+      "reviewURL": "https://addons.thunderbird.net/en-US/thunderbird/addon/dracula-theme-for-thunderbird/reviews/",
+      "updateDate": 1606428376000
+    }
+  ]
+}

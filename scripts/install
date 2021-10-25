@@ -21,9 +21,37 @@ install_packages(){
     sudo apt-key add ./Release.key
     rm ./Release.key
     
+    # GitHub Cli
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+    
+    # GitHub Desktop
+    wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | sudo apt-key add -
+    sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list'
+    
+    # Teams
+    curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
+    
+    # Libreoffice
+    sudo apt remove --purge libreoffice* -y
+    
+    # Signal
+    # NOTE: These instructions only work for 64 bit Debian-based
+    # Linux distributions such as Ubuntu, Mint etc.
+    
+    # 1. Install our official public software signing key
+    wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+    cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+    
+    # 2. Add our repository to your list of repositories
+    echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' |\
+    sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+    
     sudo add-apt-repository -y universe multiverse
     sudo apt-get update
     sudo apt-get upgrade -y
+    sudo apt-get autoremove -y
     filepath=$SCRIPT_DIR"/../packages/apt.txt"
     packages=''
     while read -r line
@@ -154,7 +182,7 @@ install_configs(){
     systemctl --user enable onedrive-school
     systemctl --user start onedrive-school
     
-    # Install scripts
+    # scripts
     cd "$SCRIPT_DIR" || exit
     git clone https://github.com/quiode/scripts
     cd scripts || exit
@@ -162,7 +190,7 @@ install_configs(){
     
     sudo rm -r "$SCRIPT_DIR"/scripts # clean up
     
-    # copy bash files
+    # bash files
     cp -r "$SCRIPT_DIR""/../configs/bash/." /home/"$USER"/
     
     # NVM
@@ -189,6 +217,45 @@ install_configs(){
     do
         code --install-extension "$line"
     done < "$filepath"
+    
+    # Write
+    wget http://www.styluslabs.com/download/write-tgz
+    tar -xf write-tgz
+    mv Write /opt/
+    cd /opt/Write/ || exit
+    ./install.sh
+    rm -r write-tgz
+    
+    # Thunderbird
+    if [ ! -d "/home/$USER/.thunderbird/" ]
+    then
+        mkdir -p /home/"$USER"/.thunderbird/
+    fi
+    
+    cp -r "$SCRIPT_DIR""/../configs/thunderbird/." /home/"$USER"/.thunderbird/
+    
+    # LibreOffice
+    cd "$SCRIPT_DIR" || exit
+    git clone https://github.com/dracula/libreoffice.git
+    cd libreoffice || exit
+    cp dracula.soc /home/"$USER"/.config/libreoffice/*/user/config/
+    sh add_dracula_application_colors.sh
+    
+    # qBittorrent
+    curl -O https://github.com/dracula/qbittorrent/raw/master/qbittorrent.qbtheme
+    if [ ! -d "/home/$USER/.config/qBittorrent" ]
+    then
+        mkdir -p /home/"$USER"/.config/qBittorrent
+    fi
+    mv qbittorrent.qbtheme /home/"$USER"/.config/qBittorrent/
+    # TODO: set theme in config/set config generally
+}
+
+post_setup(){
+    echo -e "\e[34mCongratulations! You just finished installing. Next steps are:\e[0m"
+    echo -e "\e[34m- Setting your theme (if you want one, I don't but hey) and personal information in LibreOffice\e[0m"
+    echo -e "\e[34m- Setting your theme in Joplin and changing your settings.\e[0m"
+    exit 0
 }
 
 
@@ -218,3 +285,7 @@ do
 done
 
 install_configs
+
+neofetch
+
+post_setup

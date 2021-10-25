@@ -1,0 +1,72 @@
+{
+  "nextId": 5,
+  "logins": [
+    {
+      "id": 1,
+      "hostname": "oauth://accounts.google.com",
+      "httpRealm": "https://mail.google.com/",
+      "formSubmitURL": null,
+      "usernameField": "",
+      "passwordField": "",
+      "encryptedUsername": "MEoEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECPAw17YoXrOoBCCcuRbtwwwk9fk3PEXXvNTu7EwedSo5xo1fmeFxXIbnGQ==",
+      "encryptedPassword": "MIGSBBD4AAAAAAAAAAAAAAAAAAABMBQGCCqGSIb3DQMHBAiyhp5Mg+VYdgRoAkLXyUxm963gX4iv6Sq51d4r7fp8Kb1x17nILZ7rni1prvzZLff6zBtffwBEhd8KxXL1ku54afhQ7XZ/hj2Xy1jN0H8t9z2TbpM4nLeJve5p7moyat+JGfpJCe3VMzeKOFjZJHE8PN8=",
+      "guid": "{91f4074e-8dcd-4457-a032-85d92abf0901}",
+      "encType": 1,
+      "timeCreated": 1630326772486,
+      "timeLastUsed": 1630326772486,
+      "timePasswordChanged": 1630326772486,
+      "timesUsed": 1
+    },
+    {
+      "id": 2,
+      "hostname": "imap://imap.gmail.com",
+      "httpRealm": "imap://imap.gmail.com",
+      "formSubmitURL": null,
+      "usernameField": "",
+      "passwordField": "",
+      "encryptedUsername": "MEoEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECG1YMVVlk485BCD7tqP059FBUDrhBvKdQyrWxPR7deALynIQiwgn1W4b1w==",
+      "encryptedPassword": "MDoEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECH1IWXqenImMBBCAX4YNuE6ajQbbMMfJKaox",
+      "guid": "{fad0bd4f-820d-4de5-90dd-09a1478d2192}",
+      "encType": 1,
+      "timeCreated": 1630326773239,
+      "timeLastUsed": 1630326773239,
+      "timePasswordChanged": 1630326773239,
+      "timesUsed": 1
+    },
+    {
+      "id": 3,
+      "hostname": "smtp://smtp.gmail.com",
+      "httpRealm": "smtp://smtp.gmail.com",
+      "formSubmitURL": null,
+      "usernameField": "",
+      "passwordField": "",
+      "encryptedUsername": "MEoEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECKnDNCyAFTtiBCAhwmBMh9bqF8tJ+D/E0I0aHdEZR+vkgdNPa9uqnpopsw==",
+      "encryptedPassword": "MDoEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECK6ybDdkdT/RBBC5K34EKJG+Rr8C+LegMlq5",
+      "guid": "{c5c560c5-5096-4cdf-aec1-16572bea1e87}",
+      "encType": 1,
+      "timeCreated": 1630326773243,
+      "timeLastUsed": 1630326773243,
+      "timePasswordChanged": 1630326773243,
+      "timesUsed": 1
+    },
+    {
+      "id": 4,
+      "hostname": "owl://webmail.bwzt.ch",
+      "httpRealm": "owl://webmail.bwzt.ch",
+      "formSubmitURL": null,
+      "usernameField": "",
+      "passwordField": "",
+      "encryptedUsername": "MEIEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECLoMtn97j5cOBBjSgz1rlFoQ2UXQbA3Nju+JNb9oUdQvaSg=",
+      "encryptedPassword": "MDoEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECBV8HzDrLo7CBBC4pzq842MxvJKkVS8P97/i",
+      "guid": "{f82fcb1c-f04c-4e39-a6d5-2b97009499dc}",
+      "encType": 1,
+      "timeCreated": 1630327309289,
+      "timeLastUsed": 1630327309289,
+      "timePasswordChanged": 1630327309289,
+      "timesUsed": 1
+    }
+  ],
+  "potentiallyVulnerablePasswords": [],
+  "dismissedBreachAlertsByLoginGUID": {},
+  "version": 3
+}
