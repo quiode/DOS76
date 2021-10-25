@@ -106,10 +106,10 @@ install_configs(){
     else
         echo -e "\e[31mThe specified directory already exists.\e[0m"
         read -r -p 'Do you want to overwrite it? [Y/n]' choice
-        if [ "$choice" = "n" ]
+        if [ "$choice" == "n" ]
         then
             leave
-        elif [ "$choice" = "N" ]
+        elif [ "$choice" == "N" ]
         then
             leave
         else
