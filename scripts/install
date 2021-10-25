@@ -167,6 +167,14 @@ install_configs(){
     
     # NVM
     # TODO: implement
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    
+    # VS-Code
+    # TODO: implement:
+    # TODO: copy settings, keybindings, extensions
+    # TODO: for settings: copy settings.json (https://code.visualstudio.com/docs/getstarted/settings) ($HOME/.config/Code/User/settings.json)
+    # TODO: for keybindings: copy keybindings.json ($HOME/.config/Code/User/keybindings.json)
+    # TODO: for extensions: make loop through the code.txt file, install every extension with a new command (code --install-extension <extension-id>)
 }
 
 
