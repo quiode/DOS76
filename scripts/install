@@ -248,9 +248,14 @@ install_configs(){
         mkdir -p /home/"$USER"/.config/qBittorrent
     fi
     mv qbittorrent.qbtheme /home/"$USER"/.config/qBittorrent/
+    
+    # Rust
+    $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
     # TODO: set theme in config/set config generally
     
     # TODO: gonome extensions
+    
+    # TODO: Move all installation scripts to the installation function
 }
 
 post_setup(){
