@@ -26,3 +26,8 @@ htop
 appimagelauncher
 qbittorrent
 gnome-shell-extensions
+steam
+geogebra-classic
+google-chrome-stable
+tor
+torbrowser-launcher

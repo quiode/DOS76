@@ -1,1 +1,2 @@
-
+app/org.kde.krita/x86_64/stable
+app/com.mojang.Minecraft/x86_64/stable

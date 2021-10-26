@@ -70,7 +70,7 @@ install_witch_package_manager(){
         packages=$packages' '$line
     done < "$filepath"
     echo -e "\e[34mInstalling: $packages\e[0m"
-    flatpak install -y "$packages"
+    flatpak install "$packages" -y
     # SNAP
     echo -e "\e[34mSNAP\e[0m"
     sudo snap refresh
