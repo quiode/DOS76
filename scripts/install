@@ -78,10 +78,8 @@ install_witch_package_manager(){
     packages=''
     while read -r line
     do
-        packages=$packages' '$line
+        sudo snap install "$line"
     done < "$filepath"
-    echo -e "\e[34mInstalling: $packages\e[0m"
-    sudo snap install "$packages"
 }
 
 install_configs(){
