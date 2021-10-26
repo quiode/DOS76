@@ -240,6 +240,10 @@ install_configs(){
     cp dracula.soc /home/"$USER"/.config/libreoffice/*/user/config/
     sh add_dracula_application_colors.sh
     
+    wget https://github.com/dohliam/libreoffice-impress-templates/releases/download/v2.2/libreoffice-impress-templates-all_2.2-1.deb # Check regularly for the latest release
+    sudo dpkg -i libreoffice-impress-templates-all_2.2-1.deb
+    rm -r libreoffice-impress-templates-all_2.2-1.deb
+    
     # qBittorrent
     wget https://github.com/dracula/qbittorrent/raw/master/qbittorrent.qbtheme
     if [ ! -d "/home/$USER/.config/qBittorrent" ]
