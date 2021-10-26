@@ -182,7 +182,7 @@ install_configs(){
     # scripts
     cd "$SCRIPT_DIR" || exit
     git clone https://github.com/quiode/scripts
-    cd scripts || exit
+    cd scripts/scripts || exit
     sudo cp -r onedrive/onedrive-status /opt && chmod +x /opt/onedrive-status # Install onedrive-status script
     
     sudo rm -r "$SCRIPT_DIR"/scripts # clean up
@@ -191,7 +191,6 @@ install_configs(){
     cp -r "$SCRIPT_DIR""/../configs/bash/." /home/"$USER"/
     
     # NVM
-    # TODO: ERROR
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
     
     # VS-Code
