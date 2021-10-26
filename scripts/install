@@ -211,7 +211,6 @@ install_configs(){
     cp -r "$SCRIPT_DIR""/../configs/code/.prettierrc.json" /home/"$USER"/.config/
     
     echo -e "\e[34mInstalling VS-Code Extensions\e[0m"
-    sudo snap refresh
     filepath=$SCRIPT_DIR"/../packages/code.txt"
     while read -r line
     do
@@ -254,7 +253,17 @@ install_configs(){
     # Rust
     $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
     
-    # TODO: gonome extensions
+    # Gnome Shell Extensions
+    # https://github.com/brunelli/gnome-shell-extension-installer
+    wget -O gnome-shell-extension-installer "https://github.com/brunelli/gnome-shell-extension-installer/raw/master/gnome-shell-extension-installer"
+    chmod +x gnome-shell-extension-installer
+    sudo mv gnome-shell-extension-installer /usr/bin/
+    
+    filepath=$SCRIPT_DIR"/../packages/gnome_shell_extensions.txt"
+    while read -r line
+    do
+        gnome-shell-extension-installer "$line" --yes
+    done < "$filepath"
     
     # TODO: Move all installation scripts to the installation function
 }
