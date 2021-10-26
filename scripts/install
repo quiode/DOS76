@@ -242,16 +242,17 @@ install_configs(){
     sh add_dracula_application_colors.sh
     
     # qBittorrent
-    curl -O https://github.com/dracula/qbittorrent/raw/master/qbittorrent.qbtheme
+    wget https://github.com/dracula/qbittorrent/raw/master/qbittorrent.qbtheme
     if [ ! -d "/home/$USER/.config/qBittorrent" ]
     then
         mkdir -p /home/"$USER"/.config/qBittorrent
     fi
     mv qbittorrent.qbtheme /home/"$USER"/.config/qBittorrent/
+    cp -r "$SCRIPT_DIR""/../configs/qbittorrent/qBittorrent.conf" /home/"$USER"/.config/qBittorrent/
+    sed -i '7s#.*#General\\CustomUIThemePath=/home/'"$USER"'/.config/qBittorrent/qbittorrent.qbtheme#' /home/"$USER"/.config/qBittorrent/qBittorrent.conf
     
     # Rust
     $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
-    # TODO: set theme in config/set config generally
     
     # TODO: gonome extensions
     
