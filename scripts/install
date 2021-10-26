@@ -11,7 +11,7 @@ leave() {
     exit 1
 }
 
-install_packages(){
+install_witch_package_manager(){
     echo -e "\e[34mInstalling Packages\e[0m"
     #APT
     echo -e "\e[34mAPT\e[0m"
@@ -264,8 +264,6 @@ install_configs(){
     do
         gnome-shell-extension-installer "$line" --yes
     done < "$filepath"
-    
-    # TODO: Move all installation scripts to the installation function
 }
 
 post_setup(){
@@ -290,7 +288,7 @@ do
     esac
 done
 
-install_packages
+install_witch_package_manager
 
 while true
 do
