@@ -191,9 +191,11 @@ install_configs(){
     cp -r "$SCRIPT_DIR""/../configs/bash/." /home/"$USER"/
     
     # NVM
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    # TODO: ERROR
+    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
     
     # VS-Code
+    # TODO: Error
     if [ ! -d "/home/$USER/.config/Code" ]
     then
         mkdir -p /home/"$USER"/.config/Code
@@ -215,7 +217,7 @@ install_configs(){
     done < "$filepath"
     
     # Write
-    wget http://www.styluslabs.com/download/write-tgz
+    wget -O write-tgz http://www.styluslabs.com/download/write-tgz
     tar -xf write-tgz
     mv Write /opt/
     cd /opt/Write/ || exit
