@@ -36,6 +36,12 @@ install_witch_package_manager(){
     # Libreoffice
     sudo apt remove --purge libreoffice* -y
     
+    # Zotero
+    wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
+    
+    # AppImage
+    sudo add-apt-repository ppa:appimagelauncher-team/stable
+    
     # Signal
     # NOTE: These instructions only work for 64 bit Debian-based
     # Linux distributions such as Ubuntu, Mint etc.

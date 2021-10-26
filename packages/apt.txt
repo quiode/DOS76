@@ -27,7 +27,7 @@ appimagelauncher
 qbittorrent
 gnome-shell-extensions
 steam
-geogebra-classic
+geogebra-gnome
 google-chrome-stable
 tor
 torbrowser-launcher
