@@ -95,3 +95,4 @@ vscodevim.vim
 wongjn.php-sniffer
 xabikos.JavaScriptSnippets
 Zignd.html-css-class-completion
+dunstontc.viml
