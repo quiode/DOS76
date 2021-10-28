@@ -194,6 +194,7 @@ install_configs(){
     # NVM
     cd "$SCRIPT_DIR" || exit
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    nvm install node
     
     # VS-Code
     # TODO: Error

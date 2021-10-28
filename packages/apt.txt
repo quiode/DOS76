@@ -31,3 +31,4 @@ geogebra-gnome
 google-chrome-stable
 tor
 torbrowser-launcher
+python3
