@@ -211,12 +211,14 @@ install_configs() {
 
     # Write
     # TODO: Doesn't work from here
+    cd "$SCRIPT_DIR" || exit
     wget -O write-tgz http://www.styluslabs.com/download/write-tgz
     tar -xf write-tgz
     sudo mv Write /opt/
     cd /opt/Write/ || exit
     sudo chmod +x setup.sh
     ./setup.sh
+    cd "$SCRIPT_DIR" || exit
     rm -r write-tgz
 
     # Thunderbird
