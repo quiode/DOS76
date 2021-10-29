@@ -215,8 +215,8 @@ install_configs() {
     tar -xf write-tgz
     sudo mv Write /opt/
     cd /opt/Write/ || exit
-    sudo chmod +x install.sh
-    ./install.sh
+    sudo chmod +x setup.sh
+    ./setup.sh
     rm -r write-tgz
 
     # Thunderbird
