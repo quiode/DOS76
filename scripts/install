@@ -15,6 +15,7 @@ install_witch_package_manager() {
     echo -e "\e[34mInstalling Packages\e[0m"
     #APT
     echo -e "\e[34mAPT\e[0m"
+    sudo apt-get update
     # OneDrive Repositories
     echo 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-ubuntu-onedrive/xUbuntu_21.04/ ./' >>/etc/apt/sources.list
     wget https://download.opensuse.org/repositories/home:/npreining:/debian-ubuntu-onedrive/xUbuntu_21.04/Release.key
@@ -186,6 +187,7 @@ install_configs() {
     # NVM
     cd "$SCRIPT_DIR" || exit
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    . /home/"$USER"/.bashrc
     nvm install node
 
     # VS-Code
