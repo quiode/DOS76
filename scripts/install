@@ -210,10 +210,12 @@ install_configs() {
     done <"$filepath"
 
     # Write
+    # TODO: Doesn't work from here
     wget -O write-tgz http://www.styluslabs.com/download/write-tgz
     tar -xf write-tgz
-    mv Write /opt/
+    sudo mv Write /opt/
     cd /opt/Write/ || exit
+    sudo chmod +x install.sh
     ./install.sh
     rm -r write-tgz
 
