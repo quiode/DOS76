@@ -1,13 +1,13 @@
 " Plugins
 call plug#begin(stdpath('data') . '/plugged')
-" Theme
-Plug 'Mofiqul/dracula.nvim'
 " Quote (and such) completion
 Plug 'jiangmiao/auto-pairs'
 " Formating
 Plug 'sbdchd/neoformat' " Needs mor config!!
 " Syntax check + build automation 
 Plug 'neomake/neomake' " Needs mor config!!
+" Theme
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 " Color Scheme
