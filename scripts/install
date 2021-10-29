@@ -210,7 +210,6 @@ install_configs() {
     done <"$filepath"
 
     # Write
-    # TODO: Doesn't work from here
     cd "$SCRIPT_DIR" || exit
     wget -O write-tgz http://www.styluslabs.com/download/write-tgz
     tar -xf write-tgz
@@ -229,6 +228,7 @@ install_configs() {
     cp -r "$SCRIPT_DIR""/../configs/thunderbird/." /home/"$USER"/.thunderbird/
 
     # LibreOffice
+    libreoffice # Have to make if more efficient
     cd "$SCRIPT_DIR" || exit
     git clone https://github.com/dracula/libreoffice.git
     cd libreoffice || exit
@@ -240,6 +240,7 @@ install_configs() {
     rm -r libreoffice-impress-templates-all_2.2-1.deb
 
     # qBittorrent
+    # TODO: Test from here
     wget https://github.com/dracula/qbittorrent/raw/master/qbittorrent.qbtheme
     if [ ! -d "/home/$USER/.config/qBittorrent" ]; then
         mkdir -p /home/"$USER"/.config/qBittorrent
