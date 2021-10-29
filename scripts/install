@@ -262,7 +262,7 @@ install_configs() {
     ssh-keygen -t ed25519 -C "domi.schwaiger04@gmail.com"
     eval "$(ssh-agent -s)"
     ssh-add /home/"$USER"/.ssh/id_ed25519
-    gh ssh-key add key-file /home/"$USER"/.ssh/id_ed25519
+    gh ssh-key add /home/"$USER"/.ssh/id_ed25519
 }
 
 post_setup() {
