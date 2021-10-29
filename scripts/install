@@ -257,12 +257,12 @@ install_configs() {
     done <"$filepath"
 
     # Github SSH Key
-    echo -e "\e[34mSetting SSH-Key for GitHub. Please follow instructions.\e[0m"
+    echo -e "\e[34mSetting SSH-Key for GitHub. Please follow instructions. (Just Press Enter (and select SSH instead of HTTPS))\e[0m"
     sleep 2
     ssh-keygen -t ed25519 -C "domi.schwaiger04@gmail.com"
     eval "$(ssh-agent -s)"
     ssh-add /home/"$USER"/.ssh/id_ed25519
-    gh ssh-key add /home/"$USER"/.ssh/id_ed25519
+    gh auth login
 }
 
 post_setup() {
