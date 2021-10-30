@@ -50,11 +50,11 @@ while true; do
     esac
 done
 
-sh "$SCRIPT_DIR"/scripts/sub/install_packages.sh
+bash "$SCRIPT_DIR"/scripts/sub/install_packages.sh
 
-sh "$SCRIPT_DIR"/scripts/sub/install_programms.sh
+bash "$SCRIPT_DIR"/scripts/sub/install_programms.sh
 
-sh "$SCRIPT_DIR"/scripts/sub/one_time_setup.sh
+bash "$SCRIPT_DIR"/scripts/sub/one_time_setup.sh
 
 while true; do
     read -r -p 'If you continue, all config files will be overritten. Do you want to continue [Y/n]?' choice
@@ -64,7 +64,7 @@ while true; do
     esac
 done
 
-sh "$SCRIPT_DIR"/scripts/sub/install_configs.sh
+bash "$SCRIPT_DIR"/scripts/sub/install_configs.sh
 
 neofetch
 

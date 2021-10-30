@@ -12,7 +12,7 @@ cd "$SCRIPT_DIR" || exit
 git pull --rebase || exit
 
 # upload configs
-sh "$SCRIPT_DIR/scripts/sub/upload_configs.sh" || exit
+bash "$SCRIPT_DIR/scripts/sub/upload_configs.sh" || exit
 
 echo -e "\e[1;32mDone! Uploading repo...\e[0m"
 git commit -a -m "Config Update" || exit
