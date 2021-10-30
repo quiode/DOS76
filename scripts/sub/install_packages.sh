@@ -12,6 +12,7 @@ unalias cp
 echo -e "\e[34mAPT\e[0m"
 sudo apt-get update
 # OneDrive Repositories
+sudo chmod +w /etc/apt/sources.list
 echo 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-ubuntu-onedrive/xUbuntu_21.04/ ./' >>/etc/apt/sources.list
 wget https://download.opensuse.org/repositories/home:/npreining:/debian-ubuntu-onedrive/xUbuntu_21.04/Release.key
 sudo apt-key add ./Release.key
