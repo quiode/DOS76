@@ -1,6 +1,6 @@
 #!/bin/bash
 # Installs the latest packages
-echo "\e[34mInstalling latest packages...\e[0m"
+echo -e "\e[34mInstalling latest packages...\e[0m"
 
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -8,7 +8,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 unalias cp
 
 #APT
-echo "\e[34mAPT\e[0m"
+echo -e "\e[34mAPT\e[0m"
 sudo apt-get update
 # OneDrive Repositories
 echo 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-ubuntu-onedrive/xUbuntu_21.04/ ./' >>/etc/apt/sources.list
@@ -22,11 +22,11 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 
 # GitHub Desktop
 wget -qO - https://packagecloud.io/shiftkey/desktop/gpgkey | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list'
+sudo bash-c 'echo "deb [arch=amd64] https://packagecloud.io/shiftkey/desktop/any/ any main" > /etc/apt/sources.list.d/packagecloud-shiftky-desktop.list'
 
 # Teams
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
+sudo bash-c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main" > /etc/apt/sources.list.d/teams.list'
 
 # Zotero
 wget -qO- https://github.com/retorquere/zotero-deb/releases/download/apt-get/install.sh | sudo bash
@@ -61,14 +61,14 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 # FLATPAK
-echo "\e[34mFLATPAK\e[0m"
+echo -e "\e[34mFLATPAK\e[0m"
 flatpak update
 filepath=$SCRIPT_DIR"/packages/flatpak.txt"
 while read -r line; do
     flatpak install "$line" -y
 done <"$filepath"
 # SNAP
-echo "\e[34mSNAP\e[0m"
+echo -e "\e[34mSNAP\e[0m"
 sudo snap refresh
 filepath=$SCRIPT_DIR"/packages/snap.txt"
 while read -r line; do

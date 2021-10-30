@@ -30,7 +30,7 @@ This is not tested as the GitHub Cli doesn't work on my machine.
 ```bash
 gh clone quiode/DOS76
 cd DOS76/scripts/main
-chmod +x get.sh install.sh set.sh
+chmod +x get.bashinstall.sh set.sh
 ./install.sh
 ```
 
@@ -39,7 +39,7 @@ chmod +x get.sh install.sh set.sh
 ```bash
 git clone https://github.com/quiode/DOS76
 cd DOS76/scripts/main
-chmod +x get.sh install.sh set.sh
+chmod +x get.bashinstall.sh set.sh
 ./install.sh
 ```
 

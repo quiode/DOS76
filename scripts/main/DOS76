@@ -1,0 +1,6 @@
+#!/bin/bash
+# This program is to easily install, update or set DOS76
+if [ "$EUID" -eq 0 ]; then
+    echo -e -e "\e[1;31mDon't run as root\e[0m"
+    exit 0
+fi

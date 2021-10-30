@@ -4,6 +4,6 @@ git clone https://github.com/quiode/DOS76
 
 sudo chmod +x DOS76/scripts/main/get.sh
 
-sh DOS76/scripts/main/get.sh
+bashDOS76/scripts/main/get.sh
 
 sudo rm -r DOS76

@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script installs additional packages not managed by a package manager
-echo "\e[34mInstalling latest programs...\e[0m"
+echo -e "\e[34mInstalling latest programs...\e[0m"
 
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -8,7 +8,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 unalias cp
 
 # Neovim
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+bash-c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' # Install vim-plug
 
 # NVM
@@ -18,7 +18,7 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 nvm install node
 
 #VS-Code
-echo "\e[34mInstalling VS-Code Extensions\e[0m"
+echo -e "\e[34mInstalling VS-Code Extensions\e[0m"
 filepath=$SCRIPT_DIR"/packages/code.txt"
 while read -r line; do
     code --install-extension "$line"
