@@ -187,11 +187,10 @@ install_configs() {
     # NVM
     cd "$SCRIPT_DIR" || exit
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-    . /home/"$USER"/.bashrc
+    sh /home/"$USER"/.bashrc
     nvm install node
 
     # VS-Code
-    # TODO: Error
     if [ ! -d "/home/$USER/.config/Code" ]; then
         mkdir -p /home/"$USER"/.config/Code
         mkdir -p /home/"$USER"/.config/Code/User
@@ -217,6 +216,7 @@ install_configs() {
     cd /opt/Write/ || exit
     sudo chmod +x setup.sh
     ./setup.sh
+    ./setup.sh
     cd "$SCRIPT_DIR" || exit
     rm -r write-tgz
 
@@ -240,7 +240,6 @@ install_configs() {
     rm -r libreoffice-impress-templates-all_2.2-1.deb
 
     # qBittorrent
-    # TODO: Test from here
     wget https://github.com/dracula/qbittorrent/raw/master/qbittorrent.qbtheme
     if [ ! -d "/home/$USER/.config/qBittorrent" ]; then
         mkdir -p /home/"$USER"/.config/qBittorrent
