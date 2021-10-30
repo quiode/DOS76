@@ -14,12 +14,12 @@ install)
 
 update | get)
     echo -e "\e[1;34mUpdating DOS76\e[0m"
-    bash dos76_install_helper.sh
+    bash dos76_update_helper.sh
     ;;
 
 set)
     echo -e "\e[1;34mSetting DOS76\e[0m"
-    bash dos76_install_helper.sh
+    bash dos76_set_helper.sh
     ;;
 
 --help)
