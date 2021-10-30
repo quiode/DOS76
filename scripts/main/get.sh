@@ -1,6 +1,5 @@
 #!/bin/bash
-# This script gets all config files on this system and updates the repo.
-
+# This script is meant to be run after installing the OS to update config files and install software
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 

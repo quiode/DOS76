@@ -1,2 +1,2 @@
 #!/bin/bash
-# This script is meant to be run after installing the OS to update config files and install software
+# This script gets all config files on this system and updates the repo.
