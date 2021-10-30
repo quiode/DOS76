@@ -8,22 +8,22 @@ fi
 case $1 in
 
 install)
-    STATEMENTS
+    echo -e "\e[1;34mInstalling DOS76\e[0m"
     ;;
 
 update)
-    STATEMENTS
+    echo -e "\e[1;34mUpdating DOS76\e[0m"
     ;;
 
 set)
-    STATEMENTS
+    echo -e "\e[1;34mSetting DOS76\e[0m"
     ;;
 
 --help)
-    echo -e -e "\e[1;31mUsage: ./DOS76.sh [install|update|set]\e[0m"
-    echo -e -e "\e[1;31minstall: install DOS76\e[0m"
-    echo -e -e "\e[1;31mupdate: update DOS76\e[0m"
-    echo -e -e "\e[1;31mset: set DOS76\e[0m"
+    echo -e -e "\e[1;34mUsage: ./DOS76.sh [install|update|set]\e[0m"
+    echo -e -e "\e[1;34minstall: install DOS76\e[0m"
+    echo -e -e "\e[1;34mupdate: update DOS76\e[0m"
+    echo -e -e "\e[1;34mset: set DOS76\e[0m"
     ;;
 *)
     echo -e"\e[1;31mInvalid option!\e[0m"
