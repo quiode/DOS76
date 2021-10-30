@@ -15,7 +15,7 @@ post_setup() {
     # Versioning
     # First line = config
     # Second line = packages
-    # Third line = additional programms
+    # Third line = additional programs
     # Fourth line = one time setup
     if [ ! -d "/home/$USER/.config/DOS76" ]; then
         mkdir -p /home/"$USER"/.config/DOS76

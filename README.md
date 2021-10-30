@@ -12,7 +12,14 @@
 
 # Introduction
 
-This repository is meant to easly setup a new Computer with my personal settings. It is meant to first cleanly install the [OS](https://pop.system76.com/) and then directely run the script.
+This repository is meant to easly setup a new Computer with my personal settings. It is meant to first cleanly install the [OS](https://pop.system76.com/) and then directely run the script. \
+\
+Versioning is done with a [version file](version.txt). The lines work as this:
+
+1. Version of the config files
+1. Version of the package list
+1. Version of the additional programs
+1. Version of the one time setup
 
 # Installation
 
