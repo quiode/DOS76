@@ -59,21 +59,21 @@ install_witch_package_manager() {
     sudo apt-get update
     sudo apt-get upgrade -y
     sudo apt-get autoremove -y
-    filepath=$SCRIPT_DIR"/../packages/apt.txt"
+    filepath=$SCRIPT_DIR"/packages/apt.txt"
     while read -r line; do
         sudo apt-get install -y "$line"
     done <"$filepath"
     # FLATPAK
     echo -e "\e[34mFLATPAK\e[0m"
     flatpak update
-    filepath=$SCRIPT_DIR"/../packages/flatpak.txt"
+    filepath=$SCRIPT_DIR"/packages/flatpak.txt"
     while read -r line; do
         flatpak install "$line" -y
     done <"$filepath"
     # SNAP
     echo -e "\e[34mSNAP\e[0m"
     sudo snap refresh
-    filepath=$SCRIPT_DIR"/../packages/snap.txt"
+    filepath=$SCRIPT_DIR"/packages/snap.txt"
     while read -r line; do
         sudo snap install "$line"
     done <"$filepath"
@@ -94,7 +94,7 @@ install_configs() {
     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' # Install vim-plug
 
-    cp "$SCRIPT_DIR""/../configs/nvim/init.vim" ~/.config/nvim/init.vim
+    cp "$SCRIPT_DIR""/configs/nvim/init.vim" ~/.config/nvim/init.vim
 
     # OneDrive
     echo -e "\e[34mSetting OneDrive...\e[0m"
@@ -120,7 +120,7 @@ install_configs() {
     echo -e "\e[34mPlease authenticate with your personal account.\e[0m"
     onedrive
     # Copy the personal account config files
-    cp -r "$SCRIPT_DIR""/../configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
+    cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
 
     if [ ! -d "$choice" ]; then
         mkdir "$choice"
@@ -144,7 +144,7 @@ install_configs() {
     sed -i '7s#.*#sync_dir = "'"$choice"'/Private/"#' config
 
     # Make onedrive school setup
-    cp -r "$SCRIPT_DIR""/../configs/onedrive/onedrive-school" /home/"$USER"/.config/
+    cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive-school" /home/"$USER"/.config/
 
     # Replace the default save-location with the one specified
     mkdir "$choice"'/School/'
@@ -182,7 +182,7 @@ install_configs() {
     sudo rm -r "$SCRIPT_DIR"/scripts # clean up
 
     # bash files
-    cp -r "$SCRIPT_DIR""/../configs/bash/." /home/"$USER"/
+    cp -r "$SCRIPT_DIR""/configs/bash/." /home/"$USER"/
 
     # NVM
     cd "$SCRIPT_DIR" || exit
@@ -199,12 +199,12 @@ install_configs() {
         mkdir -p /home/"$USER"/.config/Code/User
     fi
 
-    cp -r "$SCRIPT_DIR""/../configs/code/settings.json" /home/"$USER"/.config/Code/User/settings.json
-    cp -r "$SCRIPT_DIR""/../configs/code/keybindings.json" /home/"$USER"/.config/Code/User/keybindings.json
-    cp -r "$SCRIPT_DIR""/../configs/code/.prettierrc.json" /home/"$USER"/.config/
+    cp -r "$SCRIPT_DIR""/configs/code/settings.json" /home/"$USER"/.config/Code/User/settings.json
+    cp -r "$SCRIPT_DIR""/configs/code/keybindings.json" /home/"$USER"/.config/Code/User/keybindings.json
+    cp -r "$SCRIPT_DIR""/configs/code/.prettierrc.json" /home/"$USER"/.config/
 
     echo -e "\e[34mInstalling VS-Code Extensions\e[0m"
-    filepath=$SCRIPT_DIR"/../packages/code.txt"
+    filepath=$SCRIPT_DIR"/packages/code.txt"
     while read -r line; do
         code --install-extension "$line"
     done <"$filepath"
@@ -225,7 +225,7 @@ install_configs() {
         mkdir -p /home/"$USER"/.thunderbird/
     fi
 
-    cp -r "$SCRIPT_DIR""/../configs/thunderbird/." /home/"$USER"/.thunderbird/
+    cp -r "$SCRIPT_DIR""/configs/thunderbird/." /home/"$USER"/.thunderbird/
 
     # LibreOffice
     libreoffice # Have to make if more efficient
@@ -246,7 +246,7 @@ install_configs() {
         mkdir -p /home/"$USER"/.config/qBittorrent
     fi
     mv qbittorrent.qbtheme /home/"$USER"/.config/qBittorrent/
-    cp -r "$SCRIPT_DIR""/../configs/qbittorrent/qBittorrent.conf" /home/"$USER"/.config/qBittorrent/
+    cp -r "$SCRIPT_DIR""/configs/qbittorrent/qBittorrent.conf" /home/"$USER"/.config/qBittorrent/
     sed -i '7s#.*#General\\CustomUIThemePath=/home/'"$USER"'/.config/qBittorrent/qbittorrent.qbtheme#' /home/"$USER"/.config/qBittorrent/qBittorrent.conf
 
     # Rust
@@ -258,7 +258,7 @@ install_configs() {
     chmod +x gnome-shell-extension-installer
     sudo mv gnome-shell-extension-installer /usr/bin/
 
-    filepath=$SCRIPT_DIR"/../packages/gnome_shell_extensions.txt"
+    filepath=$SCRIPT_DIR"/packages/gnome_shell_extensions.txt"
     while read -r line; do
         gnome-shell-extension-installer "$line" --yes
     done <"$filepath"
@@ -280,7 +280,7 @@ post_setup() {
         mkdir -p /home/"$USER"/.config/DOS76
     fi
 
-    cp -r "$SCRIPT_DIR""/../version.txt" /home/"$USER"/.config/DOS76/
+    cp -r "$SCRIPT_DIR""/version.txt" /home/"$USER"/.config/DOS76/
 
     echo -e "\e[34mCongratulations! You just finished installing. Next steps are:\e[0m"
     echo -e "\e[34m- Setting your theme (if you want one, I don't but hey) and personal information in LibreOffice\e[0m"
