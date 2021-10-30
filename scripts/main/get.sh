@@ -22,6 +22,7 @@ if [ -d "/home/$USER/.config/DOS76" ]; then
     elif [ ! "$(sed '4!d' /home/"$USER"/.config/DOS76/version.txt)" = "$(sed '4!d' "$SCRIPT_DIR"/version.txt)" ]; then
         sh "$SCRIPT_DIR"/scripts/sub/one_time_setup.sh || exit
     else
+        echo "\e[1;32mEverything is up to date.\e[0m"
         exit 1
     fi
 else

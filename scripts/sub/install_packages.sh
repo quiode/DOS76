@@ -1,6 +1,6 @@
 #!/bin/bash
 # Installs the latest packages
-echo -e "\e[34mInstalling latest packages...\e[0m"
+echo "\e[34mInstalling latest packages...\e[0m"
 
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -8,7 +8,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 unalias cp
 
 #APT
-echo -e "\e[34mAPT\e[0m"
+echo "\e[34mAPT\e[0m"
 sudo apt-get update
 # OneDrive Repositories
 echo 'deb https://download.opensuse.org/repositories/home:/npreining:/debian-ubuntu-onedrive/xUbuntu_21.04/ ./' >>/etc/apt/sources.list
@@ -61,14 +61,14 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get autoremove -y
 # FLATPAK
-echo -e "\e[34mFLATPAK\e[0m"
+echo "\e[34mFLATPAK\e[0m"
 flatpak update
 filepath=$SCRIPT_DIR"/packages/flatpak.txt"
 while read -r line; do
     flatpak install "$line" -y
 done <"$filepath"
 # SNAP
-echo -e "\e[34mSNAP\e[0m"
+echo "\e[34mSNAP\e[0m"
 sudo snap refresh
 filepath=$SCRIPT_DIR"/packages/snap.txt"
 while read -r line; do
