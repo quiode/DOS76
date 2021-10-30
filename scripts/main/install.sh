@@ -15,6 +15,8 @@ post_setup() {
     # Versioning
     # First line = config
     # Second line = packages
+    # Third line = additional programms
+    # Fourth line = one time setup
     if [ ! -d "/home/$USER/.config/DOS76" ]; then
         mkdir -p /home/"$USER"/.config/DOS76
     fi
@@ -42,6 +44,10 @@ while true; do
 done
 
 sh "$SCRIPT_DIR"/scripts/sub/install_packages.sh
+
+sh "$SCRIPT_DIR"/scripts/sub/install_programms.sh
+
+sh "$SCRIPT_DIR"/scripts/sub/one_time_setup.sh
 
 while true; do
     read -r -p 'If you continue, all config files will be overritten. Do you want to continue [Y/n]?' choice
