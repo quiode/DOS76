@@ -9,7 +9,7 @@ unalias cp
 
 # Updating repo
 cd "$SCRIPT_DIR" || exit
-#git pull --rebase || exit
+git pull --rebase || exit
 
 # upload configs
 sh "$SCRIPT_DIR/scripts/sub/upload_configs.sh" || exit
