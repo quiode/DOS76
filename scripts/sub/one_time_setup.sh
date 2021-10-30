@@ -128,3 +128,9 @@ cd ../
 rm -rf gnome-terminal
 
 eval "$(dircolors "/home/$USER/.dir_colors/dircolors")"
+
+# Copy DOS76 and it's helpers to /usr/bin
+sudo cp -r "$SCRIPT_DIR""/scripts/main/DOS76" /usr/bin/
+sudo cp -r "$SCRIPT_DIR""/scripts/sub/dos76_install_helper.sh" /usr/bin/
+sudo cp -r "$SCRIPT_DIR""/scripts/sub/dos76_set_helper.sh" /usr/bin/
+sudo cp -r "$SCRIPT_DIR""/scripts/sub/dos76_update_helper.sh" /usr/bin/
