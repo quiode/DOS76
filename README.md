@@ -2,9 +2,13 @@
 
 # Table of Contents
 
-1. [Introduction](#introduction)
-1. [Installation](#installation)
-1. [Usage](#usage)
+- [DOS76](#dos76)
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Installation](#installation)
+  - [Using the GitHub CLI](#using-the-github-cli)
+  - [Using Git](#using-git)
+- [Usage](#usage)
 
 # Introduction
 
@@ -18,22 +22,22 @@ This is not tested as the GitHub Cli doesn't work on my machine.
 
 ```bash
 gh clone quiode/DOS76
-cd DOS76/scripts
-chmod +x get install set
-./install
+cd DOS76/scripts/main
+chmod +x get.sh install.sh set.sh
+./install.sh
 ```
 
 ## Using [Git](https://git-scm.com/)
 
 ```bash
 git clone https://github.com/quiode/DOS76
-cd DOS76/scripts
-chmod +x get install set
-./install
+cd DOS76/scripts/main
+chmod +x get.sh install.sh set.sh
+./install.sh
 ```
 
 # Usage
 
-- Install the dotfiles with [install](./scripts/install).
-- Update the dotfiles on the system with the files in the repository with [update](./scripts/set).
-- Update the dotfiles in the repository with the files in the system with [update](./scripts/get).
+- Install the dotfiles with [install](./scripts/main/install.sh).
+- Update the dotfiles on the system with the files in the repository with [update](./scripts/main/set.sh).
+- Update the dotfiles in the repository with the files in the system with [update](./scripts/main/get.sh).
