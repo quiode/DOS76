@@ -250,7 +250,7 @@ install_configs() {
     sed -i '7s#.*#General\\CustomUIThemePath=/home/'"$USER"'/.config/qBittorrent/qbittorrent.qbtheme#' /home/"$USER"/.config/qBittorrent/qBittorrent.conf
 
     # Rust
-    $ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+    curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 
     # Gnome Shell Extensions
     # https://github.com/brunelli/gnome-shell-extension-installer
