@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script gets current config files and updates the ones in the repo with them
-echo "\e[1;34mGetting current repo files...\e[0m"
+echo -e "\e[1;34mGetting current repo files...\e[0m"
 
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)

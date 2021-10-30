@@ -7,7 +7,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 unalias cp
 # Functions
 leave() {
-    echo "Aborting..."
+    echo -e "Aborting..."
     exit 1
 }
 
@@ -23,22 +23,22 @@ post_setup() {
 
     cp -r "$SCRIPT_DIR""/version.txt" /home/"$USER"/.config/DOS76/
 
-    echo "\e[34mCongratulations! You just finished installing. Next steps are:\e[0m"
-    echo "\e[34m- Setting your theme (if you want one, I don't but hey) and personal information in LibreOffice\e[0m"
-    echo "\e[34m- Setting your theme in Joplin and changing your settings.\e[0m"
-    echo "\e[34m- Running :PlugInstall and :UpdateRemotePlugins in NeoVim \e[0m"
+    echo -e "\e[34mCongratulations! You just finished installing. Next steps are:\e[0m"
+    echo -e "\e[34m- Setting your theme (if you want one, I don't but hey) and personal information in LibreOffice\e[0m"
+    echo -e "\e[34m- Setting your theme in Joplin and changing your settings.\e[0m"
+    echo -e "\e[34m- Running :PlugInstall and :UpdateRemotePlugins in NeoVim \e[0m"
     exit 0
 }
 
 if [[ $EUID -eq 0 ]]; then
-    echo "\e[31mDo not run this as the root user\e[0m"
+    echo -e "\e[31mDo not run this as the root user\e[0m"
     leave
 fi
 
 if [ -d "/home/$USER/.config/DOS76" ]; then
-    echo "\e[31mYou already have DOS76 installed.\e[0m"
-    echo "\e[31mIf you want to reinstall, delete the folder /home/$USER/.config/DOS76\e[0m"
-    echo "\e[31mIf you want to update, run the update script.\e[0m"
+    echo -e "\e[31mYou already have DOS76 installed.\e[0m"
+    echo -e "\e[31mIf you want to reinstall, delete the folder /home/$USER/.config/DOS76\e[0m"
+    echo -e "\e[31mIf you want to update, run the update script.\e[0m"
     leave
 fi
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 # This scripts executes one time setups for the os.
-echo "\e[34mInitiating one-time setup...\e[0m"
+echo -e "\e[34mInitiating one-time setup...\e[0m"
 
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
@@ -8,7 +8,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 unalias cp
 
 # Github SSH Key
-echo "\e[34mSetting SSH-Key for GitHub. Please follow instructions. (Just Press Enter (and select SSH instead of HTTPS))\e[0m"
+echo -e "\e[34mSetting SSH-Key for GitHub. Please follow instructions. (Just Press Enter (and select SSH instead of HTTPS))\e[0m"
 sleep 2
 ssh-keygen -t ed25519 -C "domi.schwaiger04@gmail.com"
 eval "$(ssh-agent -s)"
@@ -43,7 +43,7 @@ sudo rm -r /opt/onedrive-status && sudo cp -r onedrive/onedrive-status /opt && s
 sudo rm -r "$SCRIPT_DIR"/scripts # clean up
 
 # OneDrive
-echo "\e[34mSetting OneDrive...\e[0m"
+echo -e "\e[34mSetting OneDrive...\e[0m"
 choice=''
 while :; do
     read -r -p 'OneDrive is going to be set-up. If you want to use another directory than the standard one, specify it now. Use <Enter> for the default one.' choice
@@ -51,7 +51,7 @@ while :; do
         if [ -w "$choice" ]; then
             break
         else
-            echo "\e[31mThe specified directory is not writeable. Please try again...\e[0m"
+            echo -e "\e[31mThe specified directory is not writeable. Please try again...\e[0m"
         fi
     elif
         [ -z "$choice" ]
@@ -59,11 +59,11 @@ while :; do
         choice='/home/'$USER'/OneDrive'
         break
     else
-        echo "\e[31mThe directory you specified does not exist. Please try again.\e[0m"
+        echo -e "\e[31mThe directory you specified does not exist. Please try again.\e[0m"
     fi
 done
 
-echo "\e[34mPlease authenticate with your personal account.\e[0m"
+echo -e "\e[34mPlease authenticate with your personal account.\e[0m"
 onedrive
 # Copy the personal account config files
 cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
@@ -71,7 +71,7 @@ cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive/config" /home/"$USER"/.config/one
 if [ ! -d "$choice" ]; then
     mkdir "$choice"
 else
-    echo "\e[31mThe specified directory already exists.\e[0m"
+    echo -e "\e[31mThe specified directory already exists.\e[0m"
     read -r -p 'Do you want to overwrite it? [Y/n]' choice
     if [ "$choice" == "n" ]; then
         leave
@@ -99,7 +99,7 @@ cd /home/"$USER"/.config/onedrive-school || exit
 # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
 sed -i '7s#.*#sync_dir = "'"$choice"'/School/"#' config
 
-echo "\e[34mPlease authenticate with your school account.\e[0m"
+echo -e "\e[34mPlease authenticate with your school account.\e[0m"
 
 onedrive --confdir="~/.config/onedrive-school"
 
@@ -120,7 +120,7 @@ systemctl --user enable onedrive-school
 systemctl --user start onedrive-school
 
 # Gnome Terminal Dracula Theme
-echo "\e[34mSetting Gnome Terminal...\e[0m"
+echo -e "\e[34mSetting Gnome Terminal...\e[0m"
 git clone https://github.com/dracula/gnome-terminal
 cd gnome-terminal || exit
 ./install.sh
