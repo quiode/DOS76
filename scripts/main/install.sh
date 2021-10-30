@@ -35,6 +35,13 @@ if [[ $EUID -eq 0 ]]; then
     leave
 fi
 
+if [ -d "/home/$USER/.config/DOS76" ]; then
+    echo -e "\e[31mYou already have DOS76 installed.\e[0m"
+    echo -e "\e[31mIf you want to reinstall, delete the folder /home/$USER/.config/DOS76\e[0m"
+    echo -e "\e[31mIf you want to update, run the update script.\e[0m"
+    leave
+fi
+
 while true; do
     read -r -p 'If you continue, all packages will be downloaded. Do you want to continue [Y/n]?' choice
     case "$choice" in
