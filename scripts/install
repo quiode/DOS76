@@ -273,6 +273,15 @@ install_configs() {
 }
 
 post_setup() {
+    # Versioning
+    # First line = config
+    # Second line = packages
+    if [ ! -d "/home/$USER/.config/DOS76" ]; then
+        mkdir -p /home/"$USER"/.config/DOS76
+    fi
+
+    cp -r "$SCRIPT_DIR""/../version.txt" /home/"$USER"/.config/DOS76/
+
     echo -e "\e[34mCongratulations! You just finished installing. Next steps are:\e[0m"
     echo -e "\e[34m- Setting your theme (if you want one, I don't but hey) and personal information in LibreOffice\e[0m"
     echo -e "\e[34m- Setting your theme in Joplin and changing your settings.\e[0m"
