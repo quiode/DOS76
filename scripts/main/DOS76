@@ -1,0 +1,31 @@
+#!/bin/bash
+# This program is to easily install, update or set DOS76
+if [ "$EUID" -eq 0 ]; then
+    echo -e -e "\e[1;31mDon't run as root\e[0m"
+    exit 0
+fi
+
+case $1 in
+
+install)
+    STATEMENTS
+    ;;
+
+update)
+    STATEMENTS
+    ;;
+
+set)
+    STATEMENTS
+    ;;
+
+--help)
+    echo -e -e "\e[1;31mUsage: ./DOS76.sh [install|update|set]\e[0m"
+    echo -e -e "\e[1;31minstall: install DOS76\e[0m"
+    echo -e -e "\e[1;31mupdate: update DOS76\e[0m"
+    echo -e -e "\e[1;31mset: set DOS76\e[0m"
+    ;;
+*)
+    echo -e"\e[1;31mInvalid option!\e[0m"
+    ;;
+esac
