@@ -15,3 +15,6 @@ git pull --rebase || exit
 sh "$SCRIPT_DIR/scripts/sub/upload_configs.sh" || exit
 
 echo "\e[1;32mDone, uploading repo...\e[0m"
+git commit -a -m "Config Update" || exit
+git push || exit
+echo "\e[1;32mDone\e[0m"
