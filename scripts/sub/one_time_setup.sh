@@ -122,11 +122,12 @@ systemctl --user enable onedrive-school
 systemctl --user start onedrive-school
 
 # Gnome Terminal Dracula Theme
+cd /home/"$USER"/ || exit
 echo -e "\e[34mSetting Gnome Terminal...\e[0m"
 git clone https://github.com/dracula/gnome-terminal
 cd gnome-terminal || exit
 ./install.sh
-cd ../
+cd /home/"$USER"/ || exit
 rm -rf gnome-terminal
 
 eval "$(dircolors "/home/$USER/.dir_colors/dircolors")"
