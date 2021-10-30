@@ -9,6 +9,9 @@ SCRIPT_DIR=$SCRIPT_DIR"/../../"
 unalias cp
 
 # Neovim
+if [ ! -d ~/.config/nvim ]; then
+    mkdir -p ~/.config/nvim
+fi
 cp "$SCRIPT_DIR""/configs/nvim/init.vim" ~/.config/nvim/
 
 # bash files
