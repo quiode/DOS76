@@ -8,7 +8,7 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 unalias cp
 
 # Neovim
-cp "$SCRIPT_DIR""/configs/nvim/init.vim" ~/.config/nvim/init.vim
+cp "$SCRIPT_DIR""/configs/nvim/init.vim" ~/.config/nvim/
 
 # bash files
 cp -r "$SCRIPT_DIR""/configs/bash/." /home/"$USER"/
@@ -21,8 +21,8 @@ elif [ ! -d "/home/$USER/.config/Code/User" ]; then
     mkdir -p /home/"$USER"/.config/Code/User
 fi
 
-cp -r "$SCRIPT_DIR""/configs/code/settings.json" /home/"$USER"/.config/Code/User/settings.json
-cp -r "$SCRIPT_DIR""/configs/code/keybindings.json" /home/"$USER"/.config/Code/User/keybindings.json
+cp -r "$SCRIPT_DIR""/configs/code/settings.json" /home/"$USER"/.config/Code/User/
+cp -r "$SCRIPT_DIR""/configs/code/keybindings.json" /home/"$USER"/.config/Code/User/
 cp -r "$SCRIPT_DIR""/configs/code/.prettierrc.json" /home/"$USER"/.config/
 
 # Thunderbird
