@@ -4,6 +4,7 @@ echo -e "\e[34mInitiating one-time setup...\e[0m"
 
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+SCRIPT_DIR=$SCRIPT_DIR"/../../"
 # Variables
 unalias cp
 

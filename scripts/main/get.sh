@@ -2,6 +2,7 @@
 # This script is meant to be run after installing the OS to update config files and install software
 # Constants
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+SCRIPT_DIR=$SCRIPT_DIR"/../../"
 
 # Variables
 unalias cp
