@@ -8,4 +8,5 @@ sudo chmod +x DOS76/scripts/main/install.sh
 
 bash DOS76/scripts/main/install.sh
 
+cd /home/"$USER" || exit
 sudo rm -r DOS76
