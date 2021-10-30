@@ -36,12 +36,13 @@ fi
 mv qbittorrent.qbtheme /home/"$USER"/.config/qBittorrent/
 
 # scripts
-cd "$SCRIPT_DIR" || exit
+cd "/home/""$USER""/" || exit
 git clone https://github.com/quiode/scripts
 cd scripts/scripts || exit
-sudo rm -r /opt/onedrive-status && sudo cp -r onedrive/onedrive-status /opt && sudo chmod +x /opt/onedrive-status # Install onedrive-status script
 
-sudo rm -r "$SCRIPT_DIR"/scripts # clean up
+sudo cp -r onedrive/onedrive-status /opt && sudo chmod +x /opt/onedrive-status # Install onedrive-status script
+
+sudo rm -r "/home/""$USER""/"/scripts # clean up
 
 # OneDrive
 echo -e "\e[34mSetting OneDrive...\e[0m"
