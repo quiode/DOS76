@@ -46,5 +46,5 @@ chmod +x get.sh install.sh set.sh
 # Usage
 
 - Install the dotfiles with [install](./scripts/main/install.sh).
-- Update the dotfiles on the system with the files in the repository with [update](./scripts/main/set.sh).
-- Update the dotfiles in the repository with the files in the system with [update](./scripts/main/get.sh).
+- Update the dotfiles on the system with the files in the repository with [get](./scripts/main/get.sh).
+- Update the dotfiles in the repository with the files in the system with [set](./scripts/main/set.sh).
