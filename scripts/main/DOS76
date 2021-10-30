@@ -27,7 +27,7 @@ set)
     echo -e "\e[1;34minstall: DOS76 install\e[0m"
     echo -e "\e[1;34mupdate: DOS76 update\e[0m"
     echo -e "\e[1;34mset: DOS76 set\e[0m"
-    echo -e "\e[1;34m help (this message): DOS76 --help\e[0m"
+    echo -e "\e[1;34mhelp (this message): DOS76 --help\e[0m"
     ;;
 *)
     echo -e"\e[1;31mInvalid option!\e[0m"
