@@ -30,7 +30,7 @@ post_setup() {
     echo -e "\e[34m- Running :PlugInstall and :UpdateRemotePlugins in NeoVim \e[0m"
     exit 0
 
-    rm -r "$SCRIPT_DIR""/../"
+    sudo rm -r "$SCRIPT_DIR""/../"
 }
 
 if [[ $EUID -eq 0 ]]; then
