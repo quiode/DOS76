@@ -33,3 +33,4 @@ tor
 torbrowser-launcher
 python3
 fuse libfuse2 git python3-pip ack-grep
+adb

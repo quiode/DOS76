@@ -140,3 +140,13 @@ sudo cp -r "$SCRIPT_DIR""/scripts/main/DOS76" /opt/
 sudo cp -r "$SCRIPT_DIR""/scripts/sub/dos76_install_helper.sh" /opt/
 sudo cp -r "$SCRIPT_DIR""/scripts/sub/dos76_set_helper.sh" /opt/
 sudo cp -r "$SCRIPT_DIR""/scripts/sub/dos76_update_helper.sh" /opt/
+
+# Droidcam
+cd /home/"$USER"/ || exit
+mkdir tmp
+cd /tmp/ || exit
+wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_1.8.0.zip
+unzip droidcam_latest.zip -d droidcam
+cd droidcam && sudo ./install-client
+sudo ./install-video
+sudo ./install-sound
