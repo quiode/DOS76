@@ -10,7 +10,7 @@ unalias cp
 
 # Neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' # Install vim-plug
+https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' # Install vim-plug
 
 # NVM
 cd "$SCRIPT_DIR" || exit
@@ -49,3 +49,13 @@ filepath=$SCRIPT_DIR"/packages/gnome_shell_extensions.txt"
 while read -r line; do
     gnome-shell-extension-installer "$line" --yes
 done <"$filepath"
+
+# Droidcam
+cd /home/"$USER"/ || exit
+mkdir tmp
+cd /tmp/ || exit
+wget -O droidcam_latest.zip https://files.dev47apps.net/linux/droidcam_1.8.0.zip
+unzip droidcam_latest.zip -d droidcam
+cd droidcam && sudo ./install-client
+sudo ./install-video
+sudo ./install-sound
