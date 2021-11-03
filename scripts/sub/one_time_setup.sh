@@ -116,7 +116,7 @@ systemctl --user start onedrive
 cd /usr/lib/systemd/user/ || exit
 sudo cp onedrive.service onedrive-school.service
 
-sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'"$USER"'/.config/onedrive-school#' onedrive-school.service
+sudo sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'"$USER"'/.config/onedrive-school#' onedrive-school.service
 
 sudo systemctl stop onedrive-school@"$USER".service
 sudo systemctl disable onedrive-school@"$USER".service
