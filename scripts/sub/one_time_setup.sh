@@ -56,7 +56,7 @@ while :; do
             echo -e "\e[31mThe specified directory is not writeable. Please try again...\e[0m"
         fi
     elif
-    [ -z "$choice" ]
+        [ -z "$choice" ]
     then
         choice='/home/'$USER'/OneDrive'
         break
@@ -77,7 +77,7 @@ else
     read -r -p 'Do you want to overwrite it? [Y/n]' choice
     if [ "$choice" == "n" ]; then
         leave
-        elif [ "$choice" == "N" ]; then
+    elif [ "$choice" == "N" ]; then
         leave
     else
         sudo rm -rf "$choice"
@@ -116,7 +116,7 @@ systemctl --user start onedrive
 cd /usr/lib/systemd/user/ || exit
 sudo cp onedrive.service onedrive-school.service
 
-sudo sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'"$USER"'/.config/onedrive-school#' onedrive-school.service
+sudo sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'"$USER"'/.config/onedrive-school"#' onedrive-school.service
 
 sudo systemctl stop onedrive-school@"$USER".service
 sudo systemctl disable onedrive-school@"$USER".service
