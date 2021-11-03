@@ -30,6 +30,6 @@ set)
     echo -e "\e[1;34mhelp (this message): DOS76 --help\e[0m"
     ;;
 *)
-    echo -e"\e[1;31mInvalid option!\e[0m"
+    echo -e "\e[1;31mInvalid option!\e[0m"
     ;;
 esac
