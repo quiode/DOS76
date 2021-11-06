@@ -135,6 +135,9 @@ rm -rf gnome-terminal
 
 eval "$(dircolors "/home/$USER/.dir_colors/dircolors")"
 
+# MS Fonts
+wget https://gist.github.com/maxwelleite/10774746/raw/ttf-vista-fonts-installer.sh -q -O - | sudo bash
+
 # Copy DOS76 and it's helpers to /usr/bin
 sudo cp -r "$SCRIPT_DIR""/scripts/main/DOS76" /opt/
 sudo cp -r "$SCRIPT_DIR""/scripts/sub/dos76_install_helper.sh" /opt/
