@@ -14,6 +14,7 @@ sleep 2
 ssh-keygen -t ed25519 -C "domi.schwaiger04@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add /home/"$USER"/.ssh/id_ed25519
+ssh -T git@github.com
 gh auth login
 
 # LibreOffice
