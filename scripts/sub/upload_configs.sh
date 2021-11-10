@@ -26,3 +26,6 @@ cp -r /home/"$USER"/.thunderbird/. "$SCRIPT_DIR""/configs/thunderbird/"
 
 # qBittorrent
 cp -r /home/"$USER"/.config/qBittorrent/qBittorrent.conf "$SCRIPT_DIR""/configs/qbittorrent/"
+
+# Git
+cp -r /home/"$USER"/.gitconfig "$SCRIPT_DIR""/configs/git/"

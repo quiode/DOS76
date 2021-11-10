@@ -39,3 +39,6 @@ cp -r "$SCRIPT_DIR""/configs/thunderbird/." /home/"$USER"/.thunderbird/
 # qBittorrent
 cp -r "$SCRIPT_DIR""/configs/qbittorrent/qBittorrent.conf" /home/"$USER"/.config/qBittorrent/
 sed -i '7s#.*#General\\CustomUIThemePath=/home/'"$USER"'/.config/qBittorrent/qbittorrent.qbtheme#' /home/"$USER"/.config/qBittorrent/qBittorrent.conf
+
+# Git
+cp -r "$SCRIPT_DIR""/configs/git/.gitconfig" /home/"$USER"/
