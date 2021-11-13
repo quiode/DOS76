@@ -41,7 +41,8 @@ cd "/home/""$USER""/" || exit
 git clone https://github.com/quiode/scripts
 cd scripts/scripts || exit
 
-sudo cp -r onedrive/onedrive-status /opt && sudo chmod +x /opt/onedrive-status # Install onedrive-status script
+sudo cp -r onedrive/onedrive-status /opt && sudo chmod +x /opt/onedrive-status                      # Install onedrive-status script
+sudo cp -r system-update/update-package-managers /opt && sudo chmod +x /opt/update-package-managers # Install update-package-managers script
 
 sudo rm -r "/home/""$USER""/"/scripts # clean up
 
