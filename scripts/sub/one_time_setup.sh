@@ -72,7 +72,10 @@ onedrive
 cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
 
 # Replace the default save-location with the one specified
-mkdir "$choice"'/Private/'
+if [ ! -d "$choice""/Private/" ]; then
+    mkdir -p "$choice""/Private/"
+fi
+
 cd /home/"$USER"/.config/onedrive || exit
 
 # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
@@ -82,7 +85,10 @@ sed -i '7s#.*#sync_dir = "'"$choice"'/Private/"#' config
 cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive-school" /home/"$USER"/.config/
 
 # Replace the default save-location with the one specified
-mkdir "$choice"'/School/'
+if [ ! -d "$choice"'/School/' ]; then
+    mkdir -p "$choice"'/School/'
+fi
+
 cd /home/"$USER"/.config/onedrive-school || exit
 
 # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
