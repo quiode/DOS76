@@ -71,20 +71,6 @@ onedrive
 # Copy the personal account config files
 cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
 
-if [ ! -d "$choice" ]; then
-    mkdir "$choice"
-else
-    echo -e "\e[31mThe specified directory already exists.\e[0m"
-    read -r -p 'Do you want to overwrite it? [Y/n]' choice
-    if [ "$choice" == "n" ]; then
-        leave
-    elif [ "$choice" == "N" ]; then
-        leave
-    else
-        sudo rm -rf "$choice"
-        mkdir "$choice"
-    fi
-fi
 # Replace the default save-location with the one specified
 mkdir "$choice"'/Private/'
 cd /home/"$USER"/.config/onedrive || exit
