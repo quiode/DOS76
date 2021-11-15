@@ -8,8 +8,6 @@ Plug 'sbdchd/neoformat' " Needs mor config!!
 Plug 'neomake/neomake' " Needs mor config!!
 " Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
-" LSP
-Plug 'neovim/nvim-lspconfig'
 call plug#end()
 
 " Color Scheme
