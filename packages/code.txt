@@ -89,3 +89,4 @@ twxs.cmake
 xabikos.JavaScriptSnippets
 yzhang.markdown-all-in-one
 Zignd.html-css-class-completion
+streetsidesoftware.code-spell-checker-german
