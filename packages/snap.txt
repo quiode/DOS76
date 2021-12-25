@@ -1,3 +1,4 @@
 joplin-desktop
 spotify
 bitwarden
+snowflake
