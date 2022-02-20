@@ -37,3 +37,4 @@ adb
 ttf-mscorefonts-installer
 fontforge
 gimp
+nextcloud-desktop

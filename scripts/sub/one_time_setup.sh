@@ -47,76 +47,96 @@ sudo cp -r system-update/update-package-managers /opt && sudo chmod +x /opt/upda
 sudo rm -r "/home/""$USER""/"/scripts # clean up
 
 # OneDrive
-echo -e "\e[34mSetting OneDrive...\e[0m"
-choice=''
-while :; do
-    read -r -p 'OneDrive is going to be set-up. If you want to use another directory than the standard one, specify it now. Use <Enter> for the default one.' choice
-    if [ -d "$choice" ]; then
-        if [ -w "$choice" ]; then
+function onedrive {
+    echo -e "\e[34mSetting OneDrive...\e[0m"
+    choice=''
+    while :; do
+        read -r -p 'OneDrive is going to be set-up. If you want to use another directory than the standard one, specify it now. Use <Enter> for the default one.' choice
+        if [ -d "$choice" ]; then
+            if [ -w "$choice" ]; then
+                break
+            else
+                echo -e "\e[31mThe specified directory is not writeable. Please try again...\e[0m"
+            fi
+        elif
+            [ -z "$choice" ]
+        then
+            choice='/home/'$USER'/OneDrive'
             break
         else
-            echo -e "\e[31mThe specified directory is not writeable. Please try again...\e[0m"
+            echo -e "\e[31mThe directory you specified does not exist. Please try again.\e[0m"
         fi
-    elif
-        [ -z "$choice" ]
-    then
-        choice='/home/'$USER'/OneDrive'
-        break
-    else
-        echo -e "\e[31mThe directory you specified does not exist. Please try again.\e[0m"
+    done
+
+    echo -e "\e[34mPlease authenticate with your personal account.\e[0m"
+    onedrive
+    # Copy the personal account config files
+    cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
+
+    # Replace the default save-location with the one specified
+    if [ ! -d "$choice""/Private/" ]; then
+        mkdir -p "$choice""/Private/"
     fi
+
+    cd /home/"$USER"/.config/onedrive || exit
+
+    # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
+    sed -i '7s#.*#sync_dir = "'"$choice"'/Private/"#' config
+
+    # Make onedrive school setup
+    cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive-school" /home/"$USER"/.config/
+
+    # Replace the default save-location with the one specified
+    if [ ! -d "$choice"'/School/' ]; then
+        mkdir -p "$choice"'/School/'
+    fi
+
+    cd /home/"$USER"/.config/onedrive-school || exit
+
+    # https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
+    sed -i '7s#.*#sync_dir = "'"$choice"'/School/"#' config
+
+    echo -e "\e[34mPlease authenticate with your school account.\e[0m"
+
+    onedrive --confdir="~/.config/onedrive-school"
+
+    # Setup notification daemon for OneDrive Private
+    sudo systemctl stop onedrive@"$USER".service
+    sudo systemctl disable onedrive@"$USER".service
+
+    systemctl --user enable onedrive
+    systemctl --user start onedrive
+
+    # Setup notification daemon for OneDrive School
+    cd /usr/lib/systemd/user/ || exit
+    sudo cp onedrive.service onedrive-school.service
+
+    sudo sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'"$USER"'/.config/onedrive-school"#' onedrive-school.service
+
+    sudo systemctl stop onedrive-school@"$USER".service
+    sudo systemctl disable onedrive-school@"$USER".service
+
+    systemctl --user enable onedrive-school
+    systemctl --user start onedrive-school
+}
+
+while true; do
+    read -r -p "Setup OneDrive? [Y/n] " input
+
+    case $input in
+    [yY][eE][sS] | [yY])
+        onedrive
+        break
+        ;;
+    [nN][oO] | [nN])
+        echo "OneDrive will not be set-up. It will be installed. Nextcloud is also installed."
+        break
+        ;;
+    *)
+        echo "Invalid input..."
+        ;;
+    esac
 done
-
-echo -e "\e[34mPlease authenticate with your personal account.\e[0m"
-onedrive
-# Copy the personal account config files
-cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive/config" /home/"$USER"/.config/onedrive
-
-# Replace the default save-location with the one specified
-if [ ! -d "$choice""/Private/" ]; then
-    mkdir -p "$choice""/Private/"
-fi
-
-cd /home/"$USER"/.config/onedrive || exit
-
-# https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
-sed -i '7s#.*#sync_dir = "'"$choice"'/Private/"#' config
-
-# Make onedrive school setup
-cp -r "$SCRIPT_DIR""/configs/onedrive/onedrive-school" /home/"$USER"/.config/
-
-# Replace the default save-location with the one specified
-if [ ! -d "$choice"'/School/' ]; then
-    mkdir -p "$choice"'/School/'
-fi
-
-cd /home/"$USER"/.config/onedrive-school || exit
-
-# https://stackoverflow.com/questions/11145270/how-to-replace-an-entire-line-in-a-text-file-by-line-number
-sed -i '7s#.*#sync_dir = "'"$choice"'/School/"#' config
-
-echo -e "\e[34mPlease authenticate with your school account.\e[0m"
-
-onedrive --confdir="~/.config/onedrive-school"
-
-# Setup notification daemon for OneDrive Private
-sudo systemctl stop onedrive@"$USER".service
-sudo systemctl disable onedrive@"$USER".service
-
-systemctl --user enable onedrive
-systemctl --user start onedrive
-
-# Setup notification daemon for OneDrive School
-cd /usr/lib/systemd/user/ || exit
-sudo cp onedrive.service onedrive-school.service
-
-sudo sed -i '8s#.*#ExecStart=/usr/bin/onedrive --monitor --confdir="/home/'"$USER"'/.config/onedrive-school"#' onedrive-school.service
-
-sudo systemctl stop onedrive-school@"$USER".service
-sudo systemctl disable onedrive-school@"$USER".service
-
-systemctl --user enable onedrive-school
-systemctl --user start onedrive-school
 
 # Gnome Terminal Dracula Theme
 cd /home/"$USER"/ || exit
