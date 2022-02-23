@@ -38,3 +38,4 @@ ttf-mscorefonts-installer
 fontforge
 gimp
 nextcloud-desktop
+draw.io
