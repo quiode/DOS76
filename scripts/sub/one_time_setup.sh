@@ -23,7 +23,9 @@ cd "$SCRIPT_DIR" || exit
 git clone https://github.com/dracula/libreoffice.git
 cd libreoffice || exit
 cp dracula.soc /home/"$USER"/.config/libreoffice/*/user/config/
-bash add_dracula_application_colors.sh
+bash install.sh
+cd ../
+rm -rf libreoffice
 
 wget https://github.com/dohliam/libreoffice-impress-templates/releases/download/v2.2/libreoffice-impress-templates-all_2.2-1.deb # Check regularly for the latest release
 sudo dpkg -i libreoffice-impress-templates-all_2.2-1.deb
